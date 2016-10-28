@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MadamRozikaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="MegaMenu" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="CategoryRelation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContentId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="IsDefault" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContentId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Text" Type="varchar(max)" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="AddDate" Type="datetime" />
+          <Property Name="IpAddress" Type="varchar" MaxLength="150" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="GalleryId" />
+          </Key>
+          <Property Name="GalleryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="TitleUrl" Type="nvarchar" MaxLength="350" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="300" />
+          <Property Name="SeoTitleUrl" Type="nvarchar" MaxLength="350" />
+          <Property Name="PublishDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="ItemCount" Type="int" Nullable="false" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="550" />
+          <Property Name="Tags" Type="varchar" MaxLength="550" />
+          <Property Name="FilePath" Type="varchar" MaxLength="550" />
+        </EntityType>
+        <EntityType Name="GalleryItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GalleryId" Type="int" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar(max)" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+          <Property Name="FilePath" Type="varchar" MaxLength="255" />
+          <Property Name="ItemOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="300" />
+          <Property Name="TitleUrl" Type="varchar" MaxLength="350" />
+          <Property Name="SeoTitle" Type="varchar" MaxLength="300" />
+          <Property Name="SeoTitleUrl" Type="varchar" MaxLength="350" />
+          <Property Name="Summary" Type="varchar" MaxLength="500" />
+          <Property Name="NewsText" Type="text" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="PublishDate" Type="smalldatetime" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="CommentActive" Type="tinyint" />
+          <Property Name="GalleryId" Type="int" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Tags" Type="varchar" MaxLength="1000" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="500" />
+          <Property Name="UserStatus" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" />
+          <Property Name="Url" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TagRelation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContentId" Type="int" />
+          <Property Name="TagId" Type="int" />
+        </EntityType>
+        <Function Name="Sp_GetNewsListWithCategoryUrl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryUrl" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="MadamRozikaModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryRelation" EntityType="Self.CategoryRelation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryItem" EntityType="Self.GalleryItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagRelation" EntityType="Self.TagRelation" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MadamRozikaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="MegaMenu" Type="Byte" />
+        </EntityType>
+        <EntityType Name="CategoryRelation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="IsDefault" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="AddDate" Type="DateTime" Precision="3" />
+          <Property Name="IpAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ParentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="GalleryId" />
+          </Key>
+          <Property Name="GalleryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TitleUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="SeoTitle" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="SeoTitleUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="ItemCount" Type="Int32" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="Tags" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GalleryItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GalleryId" Type="Int32" Nullable="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Byte" Nullable="false" />
+          <Property Name="FilePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemOrder" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="TitleUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="SeoTitle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="SeoTitleUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NewsText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="PublishDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="CommentActive" Type="Byte" />
+          <Property Name="GalleryId" Type="Int32" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Tags" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UserStatus" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Int32" Nullable="false" />
+          <Property Name="Tag1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TagRelation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentId" Type="Int32" />
+          <Property Name="TagId" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="MadamRozikaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CategoryRelations" EntityType="Self.CategoryRelation" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Galleries" EntityType="Self.Gallery" />
+          <EntitySet Name="GalleryItems" EntityType="Self.GalleryItem" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="TagRelations" EntityType="Self.TagRelation" />
+          <FunctionImport Name="Sp_GetNewsListWithCategoryUrl" ReturnType="Collection(MadamRozikaModel.Sp_GetNewsListWithCategoryUrl_Result)">
+            <Parameter Name="CategoryUrl" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Sp_GetNewsListWithCategoryUrl_Result">
+          <Property Type="Int32" Name="NewsId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="TitleUrl" Nullable="true" MaxLength="350" />
+          <Property Type="String" Name="SeoTitle" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="SeoTitleUrl" Nullable="true" MaxLength="350" />
+          <Property Type="String" Name="Summary" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NewsText" Nullable="true" MaxLength="Max" />
+          <Property Type="Byte" Name="Status" Nullable="true" />
+          <Property Type="DateTime" Name="PublishDate" Nullable="true" Precision="16" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="16" />
+          <Property Type="Byte" Name="CommentActive" Nullable="true" />
+          <Property Type="Int32" Name="GalleryId" Nullable="true" />
+          <Property Type="Int32" Name="VideoId" Nullable="true" />
+          <Property Type="Int32" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="Tags" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="CategoryId" Nullable="true" />
+          <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
+          <Property Type="Byte" Name="UserStatus" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MadamRozikaModelStoreContainer" CdmEntityContainer="MadamRozikaEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="MadamRozikaModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MegaMenu" ColumnName="MegaMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryRelations">
+            <EntityTypeMapping TypeName="MadamRozikaModel.CategoryRelation">
+              <MappingFragment StoreEntitySet="CategoryRelation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="MadamRozikaModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galleries">
+            <EntityTypeMapping TypeName="MadamRozikaModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TitleUrl" ColumnName="TitleUrl" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoTitleUrl" ColumnName="SeoTitleUrl" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GalleryItems">
+            <EntityTypeMapping TypeName="MadamRozikaModel.GalleryItem">
+              <MappingFragment StoreEntitySet="GalleryItem">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="ItemOrder" ColumnName="ItemOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="MadamRozikaModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TitleUrl" ColumnName="TitleUrl" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoTitleUrl" ColumnName="SeoTitleUrl" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CommentActive" ColumnName="CommentActive" />
+                <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="MadamRozikaModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Tag1" ColumnName="Tag" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagRelations">
+            <EntityTypeMapping TypeName="MadamRozikaModel.TagRelation">
+              <MappingFragment StoreEntitySet="TagRelation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetNewsListWithCategoryUrl" FunctionName="MadamRozikaModel.Store.Sp_GetNewsListWithCategoryUrl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MadamRozikaModel.Sp_GetNewsListWithCategoryUrl_Result">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TitleUrl" ColumnName="TitleUrl" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoTitleUrl" ColumnName="SeoTitleUrl" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CommentActive" ColumnName="CommentActive" />
+                <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

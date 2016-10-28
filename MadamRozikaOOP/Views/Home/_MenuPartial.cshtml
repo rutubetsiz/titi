@@ -1,0 +1,104 @@
+﻿@model List<MadamRozikaGlobal.Dtos.ViewDtos.HeaderMenuDto>
+
+<nav>
+    @{
+        <ul class="sf-menu">
+            @foreach (var menu in Model)
+            {
+                if (menu.CategoryMenuDto.ParentId == 0 && menu.CategoryMenuDto.MegaMenu == 0)
+                {
+                    <li class="">
+                        <a href="/@menu.CategoryMenuDto.Url" title="@menu.CategoryMenuDto.Name">
+                            @menu.CategoryMenuDto.Name
+                        </a>
+                    </li>
+                }
+                else if (menu.CategoryMenuDto.ParentId == 0 && menu.CategoryMenuDto.MegaMenu == 1)
+                {
+                    <li class="submenu mega_menu_parent ">
+                        <a href="/@menu.CategoryMenuDto.Url" title="@menu.CategoryMenuDto.Name">
+                            @menu.CategoryMenuDto.Name
+                        </a>
+                        <ul>
+                            @foreach (var submenu in Model.Where(p => p.CategoryMenuDto.ParentId == menu.CategoryMenuDto.CategoryId))
+                            {
+                                <li class="submenu ">
+                                    <a href="/@menu.CategoryMenuDto.Url/@submenu.CategoryMenuDto.Url" title="@submenu.CategoryMenuDto.Name">
+                                        @submenu.CategoryMenuDto.Name
+                                    </a>
+                                    <ul class="mega_menu blog">
+                                        @foreach (var news in submenu.NewsMenuDto)
+                                        {
+                                            <li class="post">
+                                                <a href="/@news.SeoTitleUrl-@news.NewsId-haberi" title="@news.Title">
+                                                    <img src='@news.ImageUrl' alt='@news.Title'>
+                                                </a>
+                                                <h5><a href="/@news.SeoTitleUrl-@news.NewsId-haberi" title="@news.Title">@news.Title</a></h5>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+            <li class="">
+                <a href="/fotogaleri" title="Fotogaleri">
+                    Fotogaleri
+                </a>
+            </li>
+        </ul>
+    }
+</nav>
+<div class="mobile_menu_container">
+    <a href="#" class="mobile-menu-switch">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </a>
+    <div class="mobile-menu-divider"></div>
+    <nav>
+        <ul class="mobile-menu">
+            @foreach (var menu in Model)
+            {
+                if (menu.CategoryMenuDto.ParentId == 0 && menu.CategoryMenuDto.MegaMenu == 0)
+                {
+                    <li class="">
+                        <a href="/@menu.CategoryMenuDto.Url" title="@menu.CategoryMenuDto.Name">
+                            @menu.CategoryMenuDto.Name
+                        </a>
+                    </li>
+                }
+                else if (menu.CategoryMenuDto.ParentId == 0 && menu.CategoryMenuDto.MegaMenu == 1)
+                {
+                    <li class="submenu">
+                        <a href="/@menu.CategoryMenuDto.Url" title="@menu.CategoryMenuDto.Name">
+                            @menu.CategoryMenuDto.Name
+                        </a>
+                        <ul>
+                            @foreach (var submenu in Model)
+                            {
+                                if (submenu.CategoryMenuDto.ParentId == menu.CategoryMenuDto.CategoryId)
+                                {
+                                    <li>
+                                        <a href="/@menu.CategoryMenuDto.Url/@submenu.CategoryMenuDto.Url" title="@submenu.CategoryMenuDto.Name">
+                                            @submenu.CategoryMenuDto.Name
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+            <li class="">
+                <a href="/fotogaleri" title="Fotogaleri">
+                    Fotogaleri
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+

@@ -1,0 +1,149 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.FooterDto
+
+@{
+    var footerNews = Model.FooterNewsListDto;
+    var footerMenu = Model.CategoryMenuListDto;
+    var footerGallery = Model.FooterGalleryListDto;
+}
+
+
+<div class="footer clearfix">
+    <div class="row">
+        <div class="column column_1_3">
+            <h4 class="box_header">Madam Rozika</h4>
+            <p class="padding_top_bottom_25">Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus.</p>
+            <div class="row">
+                <div class="column column_1_2">
+                    <h5>PressRoom Ltd.</h5>
+                    <p>
+                        33 Farlane Street<br>
+                        25-100 Keilor East,<br>
+                        Australia
+                    </p>
+                </div>
+                <div class="column column_1_2">
+                    <h5>Phone &amp; Fax</h5>
+                    <p>
+                        Phone: 1-800-64-38<br>
+                        Fax: 1-800-64-39
+                    </p>
+                </div>
+            </div>
+            <h4 class="box_header page_margin_top">Bizimle İletişime Geçin</h4>
+            <ul class="social_icons dark page_margin_top clearfix">
+                <li>
+                    <a target="_blank" title="" href="https://www.facebook.com/madamrozika" class="social_icon facebook">
+                        &nbsp;
+                    </a>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <a target="_blank" title="" href="https://www.twitter.com/madamrozika" class="social_icon twitter">
+                        &nbsp;
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" title="" href="https://www.instagram.com/madamrozika" class="social_icon instagram">
+                        &nbsp;
+                    </a>
+                </li>
+                <li>
+                    <a title="" href="madamrozika@gmail.com" class="social_icon mail">
+                        &nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="column column_1_3">
+            <h4 class="box_header">Son Eklenen Haberler</h4>
+            <div class="vertical_carousel_container clearfix">
+                <ul class="blog small vertical_carousel autoplay-1 scroll-1 navigation-1 easing-easeInOutQuint duration-750">
+
+                    @foreach (var item in footerNews)
+                    {
+                        <li class="post">
+                            <a href="/@item.NewsMenu.SeoTitleUrl-@item.NewsMenu.NewsId-haberi" title="@item.NewsMenu.Title">
+                                <img src='@item.NewsMenu.ImageUrl' alt='@item.NewsMenu.Title'>
+                            </a>
+                            <div class="post_content">
+                                <h5>
+                                    <a href="/@item.NewsMenu.SeoTitleUrl-@item.NewsMenu.NewsId-haberi" title="@item.NewsMenu.Title">@item.NewsMenu.Title</a>
+                                </h5>
+                                <ul class="post_details simple">
+                                    <li class="category"><a href="/@item.CategoryMenu.Url" title="@item.CategoryMenu.Name">@item.CategoryMenu.Name</a></li>
+                                    <li class="date">
+                                        @item.NewsMenu.ModifiedDate
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="column column_1_3">
+            <h4 class="box_header">Son Eklenen Galeriler</h4>
+            <div class="horizontal_carousel_container big page_margin_top">
+                <ul class="blog horizontal_carousel visible-1 autoplay-0 scroll-1 navigation-1 easing-easeInOutQuint duration-750">
+                    @foreach (var item in footerGallery)
+                    {
+                        <li class="post">
+                        <a href="@item.SeoTitleUrl-@item.GalleryId-galeri" title="@item.Title">
+                            <span class="icon gallery"></span>
+                            <img src='/@item.ImageUrl' alt='img'>
+                        </a>
+                        <h5 class="with_number">
+                            <a href="/@item.SeoTitleUrl - @item.GalleryId - galeri" title="@item.Title">@item.Title</a>
+                        </h5>
+                        <ul class="post_details simple">
+                            <li class="category"><a href="@item.CategoryMenu.Url" title="@item.CategoryMenu.Name">@item.CategoryMenu.Name</a></li>
+                            <li class="date">
+                                @item.ModifiedDate
+                            </li>
+                        </ul>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row page_margin_top_section">
+        <div class="column column_3_4">
+            <ul class="footer_menu">
+                @foreach (var item in footerMenu)
+                {
+                    <li>
+                        <h4><a href="/@item.Url" title="@item.Name">@item.Name</a></h4>
+                    </li>
+                }
+                <li>
+                    <h4><a href="/fotogaleri" title="Fotogaleri">Fotogaleri</a></h4>
+                </li>
+            </ul>
+        </div>
+        <div class="column column_1_4">
+            <a class="scroll_top" href="#top" title="Yukarı Dönün">Yukarı</a>
+        </div>
+    </div>
+    <div class="row copyright_row">
+        <div class="column column_2_3">
+            © Copyright <a href="http://madamrozika.com" title="Madam Rozika" target="_blank">Madam Rozika</a>
+        </div>
+        <div class="column column_1_3">
+            <ul class="footer_menu">
+                <li>
+                    <h6><a href="/hakkimizda" title="Hakkımızda">Hakkımızda</a></h6>
+                </li>
+                <li>
+                    <h6><a href="/yazarlar" title="Yazarlar">Yazarlar</a></h6>
+                </li>
+                <li>
+                    <h6><a href="/iletisim" title="İletişim">İletişim</a></h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

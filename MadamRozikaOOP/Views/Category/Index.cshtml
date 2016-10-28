@@ -1,0 +1,13 @@
+﻿@model List<MadamRozikaGlobal.Dtos.ViewDtos.NewsListDto>
+@{
+    ViewBag.Title = "Category";
+}
+
+<h2>Category Başlık</h2>
+
+@{
+    foreach (var item in Model)
+    {
+        <span style="color:black;">@item.Title //// @item.Summary //// @item.CategoryName</span><br/>
+    }
+}
