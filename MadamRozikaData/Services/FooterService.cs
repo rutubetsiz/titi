@@ -35,10 +35,8 @@ namespace MadamRozikaData.Services
                     {
                         CategoryMenu = new Mapper().MapTo(category),
                         NewsMenu = new Mapper().MapTo(news)
-
                     }).ToList();
         }
-
 
         public List<FooterGalleryDto> GetFooterGallery()
         {

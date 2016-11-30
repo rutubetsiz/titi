@@ -5,12 +5,9 @@ using System.Text;
 
 namespace MadamRozikaGlobal.Dtos.ViewDtos
 {
-   public class FooterNewsDto
+    public class FooterNewsDto
     {
-       public NewsMenuDto NewsMenu { get; set; }
-        
+        public NewsMenuDto NewsMenu { get; set; }
         public CategoryMenuDto CategoryMenu { get; set; }
     }
-
-    
 }
