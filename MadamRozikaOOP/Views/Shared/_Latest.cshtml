@@ -1,0 +1,81 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.ContentBase
+
+<h4 class="box_header">Latest Posts PArtial</h4>
+
+<div class="row">
+    @{
+
+        for (var i = 0; i < Model.Latests.Count; i = i + 2)
+        {
+            <ul class="blog column column_1_2">
+                @{
+                    if (i + 1 < Model.Latests.Count)
+                    {
+                        var post1 = Model.Latests[i];
+                        if (post1 != null)
+                        {
+                            <li class="post">
+                                <a href="@Url.Action("Post", "Posts", new { nid = post1.NewsId })" title="@post1.Title">
+                                    <img src="@post1.ImageUrl" alt='img'>
+                                </a>
+                                <h2 class="with_number">
+                                    <a href="@Url.Action("Post", "Posts", new { nid = post1.NewsId })" title="@post1.Title">@post1.Title </a>
+                                    <a class="comments_number" href="@Url.Action("Post", "Posts", post1.NewsId)#comments_list" title="@post1.CommentCount  Yorum">
+                                        @post1.CommentCount <span class="arrow_comments"></span>
+                                    </a>
+                                </h2>
+                                <ul class="post_details">
+                                    <li class="category">
+                                        <a href="category_world.html" title="@post1.Category">@post1.Category</a>
+                                    </li>
+                                    <li class="date">
+                                        10:11 PM, Feb 02
+                                    </li>
+                                </ul>
+                                <p>@post1.Summary</p>
+                                <a class="read_more" href="@Url.Action("Post", "Posts", new { nid = post1.NewsId })" title="Daha Fazlası">
+                                    <span class="arrow"></span><span>Daha Fazlası</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+
+                @{
+                    if (i + 1 < Model.Latests.Count)
+                    {
+                        var post2 = Model.Latests[i + 1];
+
+                        if (post2 != null)
+                        {
+                            <li class="post">
+                                <a href="@Url.Action("Post", "Posts", new { nid = post2.NewsId })" title="@post2.Title">
+                                    <img src="@post2.ImageUrl" alt='img'>
+                                </a>
+                                <h2 class="with_number">
+                                   <a href="@Url.Action("Post", "Posts", new { nid = post2.NewsId })" title="@post2.Title">@post2.Title </a>
+                                    <a class="comments_number" href="@Url.Action("Post", "Posts", post2.NewsId)#comments_list" title="@post2.CommentCount comments">
+                                        @post2.CommentCount <span class="arrow_comments"></span>
+                                    </a>
+                                </h2>
+                                <ul class="post_details">
+                                    <li class="category">
+                                        <a href="category_world.html" title="@post2.Category">@post2.Category</a>
+                                    </li>
+                                    <li class="date">
+                                        10:11 PM, Feb 02
+                                    </li>
+                                </ul>
+                                <p>@post2.Summary</p>
+                                <a class="read_more" href="@Url.Action("Post", "Posts", new { nid = post2.NewsId })" title="Daha Fazlası">
+                                    <span class="arrow"></span><span>Daha Fazlası</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+
+            </ul>
+        }
+    }
+</div>

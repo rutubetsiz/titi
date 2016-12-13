@@ -1,0 +1,65 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.ContentBase
+
+<h4 class="box_header">Güzellik</h4>
+<ul class="blog">
+    @{
+        var pg = Model.LatestByCategory.FirstOrDefault(x => x.Category == "Güzellik");
+        if (pg != null)
+        {
+            <li class="post">
+                <a href="@Url.Action("Post", "Posts", pg.NewsId)" title="@pg.Title">
+                    <img src="@pg.ImageUrl" alt="img">
+                </a>
+                <h2 class="with_number">
+                    <a href="@Url.Action("Post", "Posts", pg.NewsId)" title="@pg.Title">@pg.Title</a>
+                    <a class="comments_number" href="@Url.Action("Post", "Posts", pg.NewsId)#comments_list" title="@pg.CommentCount yorum">
+                        @pg.CommentCount<span class="arrow_comments"></span></a>
+                </h2>
+                <ul class="post_details">
+                    <li class="category">
+                        <a href="category_sports.html" title="@pg.Category">@pg.Category</a>
+                    </li>
+                    <li class="date">
+                        10:11 PM, Feb 02
+                    </li>
+                </ul>
+                <p>@pg.Summary</p>
+                <a class="read_more" href="@Url.Action("Post", "Posts", pg.NewsId)" title="Daha Fazlası">
+                    <span class="arrow"></span><span>Daha Fazlası</span>
+                </a>
+            </li>
+        }
+    }
+
+
+
+</ul>
+<ul class="blog small clearfix">
+    @{
+
+        foreach (var gg in Model.LatestByCategory.Where(x => x.Category == "Güzellik" && x.NewsId != pg.NewsId).Take(2))
+        {
+            <li class="post">
+                <a href="@Url.Action("Post", "Posts", pg.NewsId)" title="@gg.Title">
+                    <img src="@gg.ImageUrl" alt="img">
+                </a>
+                <div class="post_content">
+                    <h5>
+                        <a href="@Url.Action("Post", "Posts", pg.NewsId)" title="@gg.Title">@gg.Title</a>
+                    </h5>
+                    <ul class="post_details simple">
+                        <li class="category">
+                            <a href="category_sports.html" title="@gg.Category">@gg.Category</a>
+                        </li>
+                        <li class="date">
+                            10:11 PM, Feb 02
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        }
+    }
+
+
+</ul>
+<a class="more page_margin_top" href="#">Daha Fazlası</a>

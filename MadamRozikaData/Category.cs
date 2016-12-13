@@ -14,6 +14,13 @@ namespace MadamRozikaData
     
     public partial class Category
     {
+        public Category()
+        {
+            this.CategoryArticleRelations = new HashSet<CategoryArticleRelation>();
+            this.CategoryGalleryRelations = new HashSet<CategoryGalleryRelation>();
+            this.CategoryNewsRelations = new HashSet<CategoryNewsRelation>();
+        }
+    
         public int CategoryId { get; set; }
         public Nullable<int> ParentId { get; set; }
         public string Name { get; set; }
@@ -21,5 +28,9 @@ namespace MadamRozikaData
         public Nullable<int> Rank { get; set; }
         public Nullable<byte> Status { get; set; }
         public Nullable<byte> MegaMenu { get; set; }
+    
+        public virtual ICollection<CategoryArticleRelation> CategoryArticleRelations { get; set; }
+        public virtual ICollection<CategoryGalleryRelation> CategoryGalleryRelations { get; set; }
+        public virtual ICollection<CategoryNewsRelation> CategoryNewsRelations { get; set; }
     }
 }

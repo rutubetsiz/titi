@@ -14,6 +14,13 @@ namespace MadamRozikaData
     
     public partial class Gallery
     {
+        public Gallery()
+        {
+            this.CategoryGalleryRelations = new HashSet<CategoryGalleryRelation>();
+            this.CommentGalleryRelations = new HashSet<CommentGalleryRelation>();
+            this.TagGalleryRelations = new HashSet<TagGalleryRelation>();
+        }
+    
         public int GalleryId { get; set; }
         public int CategoryId { get; set; }
         public string Title { get; set; }
@@ -27,5 +34,9 @@ namespace MadamRozikaData
         public string ImageUrl { get; set; }
         public string Tags { get; set; }
         public string FilePath { get; set; }
+    
+        public virtual ICollection<CategoryGalleryRelation> CategoryGalleryRelations { get; set; }
+        public virtual ICollection<CommentGalleryRelation> CommentGalleryRelations { get; set; }
+        public virtual ICollection<TagGalleryRelation> TagGalleryRelations { get; set; }
     }
 }

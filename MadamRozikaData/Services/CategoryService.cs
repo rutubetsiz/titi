@@ -1,16 +1,12 @@
-﻿
-using System.Linq;
-using System.Net.Sockets;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
 using MadamRozikaData.Functions;
 using MadamRozikaGlobal.Dtos.ViewDtos;
-using System.Collections.Generic;
 
 namespace MadamRozikaData.Services
 {
     public class CategoryService
     {
-        readonly MadamRozikaEntities _db = new MadamRozikaEntities();
+        private readonly MadamRozikaEntities _db = new MadamRozikaEntities();
 
         public List<NewsListDto> GetNewsList(string categoryurl)
         {

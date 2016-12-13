@@ -27,14 +27,28 @@ namespace MadamRozikaData
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Article> Articles { get; set; }
+        public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<CategoryRelation> CategoryRelations { get; set; }
+        public virtual DbSet<CategoryArticleRelation> CategoryArticleRelations { get; set; }
+        public virtual DbSet<CategoryGalleryRelation> CategoryGalleryRelations { get; set; }
+        public virtual DbSet<CategoryNewsRelation> CategoryNewsRelations { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<CommentArticleRelation> CommentArticleRelations { get; set; }
+        public virtual DbSet<CommentAuthorRelation> CommentAuthorRelations { get; set; }
+        public virtual DbSet<CommentGalleryRelation> CommentGalleryRelations { get; set; }
+        public virtual DbSet<CommentNewsRelation> CommentNewsRelations { get; set; }
         public virtual DbSet<Gallery> Galleries { get; set; }
         public virtual DbSet<GalleryItem> GalleryItems { get; set; }
+        public virtual DbSet<Headline> Headlines { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RoleUserRelation> RoleUserRelations { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
-        public virtual DbSet<TagRelation> TagRelations { get; set; }
+        public virtual DbSet<TagArticleRelation> TagArticleRelations { get; set; }
+        public virtual DbSet<TagGalleryRelation> TagGalleryRelations { get; set; }
+        public virtual DbSet<TagNewsRelation> TagNewsRelations { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     
         public virtual ObjectResult<Sp_GetNewsListWithCategoryUrl_Result> Sp_GetNewsListWithCategoryUrl(string categoryUrl)
         {

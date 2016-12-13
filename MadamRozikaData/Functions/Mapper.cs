@@ -1,6 +1,4 @@
-﻿
-
-namespace MadamRozikaData.Functions
+﻿namespace MadamRozikaData.Functions
 {
     public partial class Mapper
     {

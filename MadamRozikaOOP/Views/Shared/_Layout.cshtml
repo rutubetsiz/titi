@@ -3,14 +3,14 @@
 <head>
     <title>@ViewBag.Title</title>
     <!--meta-->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.2" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="keywords" content="Medic, Medical Center" />
-    <meta name="description" content="Responsive Medical Health Template" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.2"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content="Medic, Medical Center"/>
+    <meta name="description" content="Responsive Medical Health Template"/>
     <!--style-->
-    <link href='//fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/Public/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/Public/css/superfish.css">
     <link rel="stylesheet" type="text/css" href="/Public/css/prettyPhoto.css">
@@ -23,45 +23,47 @@
     <link rel="shortcut icon" href="/Public/img/favicon.ico">
 </head>
 <body>
-    <div class="site_container">
-        <div class="header_top_bar_container clearfix">
-            @Html.Action("_HeaderBandPartial", "Home")
-        </div>
-        <div class="header_container">
-            <div class="header clearfix">
-                <div class="logo">
-                    <h1><a href="/" title="Pressroom">Madam Rozika</a></h1>
-                    <h4>Kadına dair her şey</h4>
-                </div>
-                <div class="placeholder">728 x 90</div>
+<div class="site_container">
+    <div class="header_top_bar_container clearfix">
+        @Html.Action("_HeaderBandPartial", "Home")
+    </div>
+    <div class="header_container">
+        <div class="header clearfix">
+            <div class="logo">
+                <h1>
+                    <a href="/" title="Pressroom">Madam Rozika</a>
+                </h1>
+                <h4>Kadına dair her şey</h4>
             </div>
-        </div>
-        <div class="menu_container clearfix">
-            @Html.Action("_MenuPartial", "Home")
-        </div>
-        @RenderBody()
-        <div class="footer_container">
-            @Html.Action("_FooterPartial", "Home")
+            <div class="placeholder">728 x 90</div>
         </div>
     </div>
-    <div class="background_overlay"></div>
-    <!--js-->
-    <script type="text/javascript" src="~/Public/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.ba-bbq.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery-ui-1.11.1.custom.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.transit.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.sliderControl.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.timeago.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.hint.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.prettyPhoto.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.qtip.min.js"></script>
-    <script type="text/javascript" src="~/Public/js/jquery.blockUI.js"></script>
-    <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="/Public/js/main.js"></script>
-    <script type="text/javascript" src="/Public/js/odometer.min.js"></script>
+    <div class="menu_container clearfix">
+        @Html.Action("_MenuPartial", "Home")
+    </div>
+    @RenderBody()
+    <div class="footer_container">
+        @Html.Action("_FooterPartial", "Home")
+    </div>
+</div>
+<div class="background_overlay"></div>
+<!--js-->
+<script type="text/javascript" src="~/Public/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.ba-bbq.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery-ui-1.11.1.custom.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.transit.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.sliderControl.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.timeago.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.hint.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.qtip.min.js"></script>
+<script type="text/javascript" src="~/Public/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="/Public/js/main.js"></script>
+<script type="text/javascript" src="/Public/js/odometer.min.js"></script>
 </body>
 </html>

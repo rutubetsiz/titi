@@ -14,8 +14,19 @@ namespace MadamRozikaData
     
     public partial class Tag
     {
+        public Tag()
+        {
+            this.TagArticleRelations = new HashSet<TagArticleRelation>();
+            this.TagGalleryRelations = new HashSet<TagGalleryRelation>();
+            this.TagNewsRelations = new HashSet<TagNewsRelation>();
+        }
+    
         public int TagId { get; set; }
         public string Tag1 { get; set; }
         public string Url { get; set; }
+    
+        public virtual ICollection<TagArticleRelation> TagArticleRelations { get; set; }
+        public virtual ICollection<TagGalleryRelation> TagGalleryRelations { get; set; }
+        public virtual ICollection<TagNewsRelation> TagNewsRelations { get; set; }
     }
 }

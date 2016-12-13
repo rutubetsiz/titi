@@ -1,0 +1,79 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.ContentBase
+
+<div class="tabs no_scroll page_margin_top_section clearfix">
+
+    <ul class="tabs_navigation clearfix">
+        <li>
+            <a href="#sidebar-most-read" title="Most Read">
+                Most Read
+            </a>
+            <span></span>
+        </li>
+        <li>
+            <a href="#sidebar-most-commented" title="Commented">
+                Commented
+            </a>
+            <span></span>
+        </li>
+    </ul>
+    <div id="sidebar-most-read">
+        <ul class="blog rating page_margin_top clearfix">
+            @{
+
+
+                foreach (var most in Model.MostReads)
+                {
+                    <li class="post">
+                        <a href="post_quote.html" title="@most.Title">
+                            <img src='@most.ImageUrl' alt='img'>
+                        </a>
+                        <div class="post_content">
+                            <span class="number animated_element" data-value="@most.CommentCount"></span>
+                            <h5>
+                                <a href="post_quote.html" title="@most.Title">@most.Title</a>
+                            </h5>
+                            <ul class="post_details simple">
+                                <li class="category">
+                                    <a href="category_health.html" title="@most.Category">@most.Category</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+            }
+
+        </ul>
+        <a class="more page_margin_top" href="#">SHOW MORE</a>
+    </div>
+    <div id="sidebar-most-commented">
+
+
+        <ul class="blog rating page_margin_top clearfix">
+            @{
+                foreach (var most in Model.MostCommenteds)
+                {
+                    <li class="post">
+                        <a href="@Url.Action("Post", "Posts", most.NewsId)" title="@most.Title">
+                            <img src='@most.ImageUrl' alt='img'>
+                        </a>
+                        <div class="post_content">
+                            <span class="number animated_element" data-value="70"></span>
+                            <h5>
+                                <a href="@Url.Action("Post", "Posts", most.NewsId)" title="@most.Title">@most.Title</a>
+                            </h5>
+                            <ul class="post_details simple">
+                                <li class="category">
+                                    <a href="category_health.html" title="@most.Category">@most.Category</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+            }
+
+
+        </ul>
+        <a class="more page_margin_top" href="#">SHOW MORE</a>
+    </div>
+
+</div>

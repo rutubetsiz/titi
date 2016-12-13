@@ -14,6 +14,13 @@ namespace MadamRozikaData
     
     public partial class News
     {
+        public News()
+        {
+            this.CategoryNewsRelations = new HashSet<CategoryNewsRelation>();
+            this.CommentNewsRelations = new HashSet<CommentNewsRelation>();
+            this.TagNewsRelations = new HashSet<TagNewsRelation>();
+        }
+    
         public int NewsId { get; set; }
         public string Title { get; set; }
         public string TitleUrl { get; set; }
@@ -32,5 +39,9 @@ namespace MadamRozikaData
         public Nullable<int> CategoryId { get; set; }
         public string ImageUrl { get; set; }
         public Nullable<byte> UserStatus { get; set; }
+    
+        public virtual ICollection<CategoryNewsRelation> CategoryNewsRelations { get; set; }
+        public virtual ICollection<CommentNewsRelation> CommentNewsRelations { get; set; }
+        public virtual ICollection<TagNewsRelation> TagNewsRelations { get; set; }
     }
 }

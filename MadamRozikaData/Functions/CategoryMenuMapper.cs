@@ -6,18 +6,17 @@ namespace MadamRozikaData.Functions
     {
         public CategoryMenuDto MapTo(Category entity)
         {
-            if(entity==null)
+            if (entity == null)
                 return null;
 
-            return new CategoryMenuDto {Name = entity.Name,Url = entity.Url,CategoryId = entity.CategoryId,MegaMenu = entity.MegaMenu,ParentId = entity.ParentId};
+            return new CategoryMenuDto
+            {
+                Name = entity.Name,
+                Url = entity.Url,
+                CategoryId = entity.CategoryId,
+                MegaMenu = entity.MegaMenu,
+                ParentId = entity.ParentId
+            };
         }
-
-        //public List<CategoryMenuDto> MapTo(Category entity)
-        //{
-        //    if (entity == null)
-        //        return null;
-
-        //    return new CategoryMenuDto { Name = entity.Name, Url = entity.Url, CategoryId = entity.CategoryId };
-        //}
-    } 
+    }
 }

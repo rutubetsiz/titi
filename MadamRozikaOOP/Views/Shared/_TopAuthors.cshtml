@@ -1,0 +1,23 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.ContentBase
+
+<h4 class="box_header page_margin_top_section">Top Authors</h4>
+<ul class="authors rating clearfix">
+    @{
+        foreach (var tau in Model.TopAuthorses)
+        {
+            <li class="author">
+                <a class="thumb" href="author.html" title="Debora Hilton">
+                    <img src='/Public/img/samples/Team_100x100/image_01.jpg' alt='img'>
+                    <span class="number animated_element" data-value="34"></span>
+                </a>
+                <div class="details">
+                    <h5>
+                        <a href="author.html" title="Debora Hilton">Debora Hilton</a>
+                    </h5>
+                    <h6>EDITOR</h6>
+                </div>
+            </li>
+        }
+    }
+
+</ul>

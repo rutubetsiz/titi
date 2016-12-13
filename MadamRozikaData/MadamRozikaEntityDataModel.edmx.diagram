@@ -5,14 +5,50 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="dea05d9e1a5c451089d18decc98bea23" Name="Diagram1">
-        <EntityTypeShape EntityType="MadamRozikaModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.CategoryRelation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.Comment" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.Gallery" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.GalleryItem" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.News" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.Tag" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MadamRozikaModel.TagRelation" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Article" Width="1.5" PointX="3.75" PointY="13.875" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Author" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Category" Width="1.5" PointX="5.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CategoryArticleRelation" Width="1.5" PointX="11" PointY="16.25" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CategoryGalleryRelation" Width="1.5" PointX="8" PointY="17.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CategoryNewsRelation" Width="1.5" PointX="8" PointY="14.375" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Comment" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CommentArticleRelation" Width="1.5" PointX="6" PointY="6.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CommentAuthorRelation" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CommentGalleryRelation" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.CommentNewsRelation" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Gallery" Width="1.5" PointX="0.75" PointY="16.625" />
+        <EntityTypeShape EntityType="MadamRozikaModel.GalleryItem" Width="1.5" PointX="5.75" PointY="2" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Headline" Width="1.5" PointX="5.75" PointY="10" />
+        <EntityTypeShape EntityType="MadamRozikaModel.News" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Role" Width="1.5" PointX="10.75" PointY="19.5" />
+        <EntityTypeShape EntityType="MadamRozikaModel.RoleUserRelation" Width="1.5" PointX="13" PointY="2.375" />
+        <EntityTypeShape EntityType="MadamRozikaModel.Tag" Width="1.5" PointX="8.75" PointY="5.125" />
+        <EntityTypeShape EntityType="MadamRozikaModel.TagArticleRelation" Width="1.5" PointX="14" PointY="10.375" />
+        <EntityTypeShape EntityType="MadamRozikaModel.TagGalleryRelation" Width="1.5" PointX="11" PointY="12" />
+        <EntityTypeShape EntityType="MadamRozikaModel.TagNewsRelation" Width="1.5" PointX="11" PointY="9.125" />
+        <EntityTypeShape EntityType="MadamRozikaModel.User" Width="1.5" PointX="10.75" PointY="2.25" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CategoryArticleRelation_Article" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CommentArticleRelation_Article" />
+        <AssociationConnector Association="MadamRozikaModel.FK_TagArticleRelation_Article" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CommentAuthorRelation_Author" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CategoryArticleRelation_Category" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CategoryGalleryRelation_Category" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CategoryNewsRelation_Category" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CategoryGalleryRelation_Gallery" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CategoryNewsRelation_News" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CommentArticleRelation_Comment" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CommentAuthorRelation_Category" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CommentGalleryRelation_Comment" />
+        <AssociationConnector Association="MadamRozikaModel.FK_COmmentNewsRelation_Comment" />
+        <AssociationConnector Association="MadamRozikaModel.FK_CommentGalleryRelation_Gallery" />
+        <AssociationConnector Association="MadamRozikaModel.FK_COmmentNewsRelation_News" />
+        <AssociationConnector Association="MadamRozikaModel.FK_TagGalleryRelation_Gallery" />
+        <AssociationConnector Association="MadamRozikaModel.FK_TagNewsRelation_News" />
+        <AssociationConnector Association="MadamRozikaModel.FK_RoleUserRelation_Role" />
+        <AssociationConnector Association="MadamRozikaModel.FK_RoleUserRelation_RoleUserRelation" />
+        <AssociationConnector Association="MadamRozikaModel.FK_TagArticleRelation_Tag" />
+        <AssociationConnector Association="MadamRozikaModel.FK_TagGalleryRelation_Tag" />
+        <AssociationConnector Association="MadamRozikaModel.FK_TagNewsRelation_Tag" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

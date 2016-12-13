@@ -1,0 +1,70 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.ContentBase
+
+<h4 class="box_header">Latest From Fashion</h4>
+<div class="row">
+
+    @{
+        <ul class="blog column column_1_2">
+
+            @{
+                var cat = Model.LatestByCategory.FirstOrDefault(x => x.Category == "Moda");
+                if (cat != null)
+                {
+                    <li class="post">
+                        <a href="post_gallery.html" title="@cat.Title">
+                            <span class="icon gallery"></span>
+                            <img src="/Public/img/samples/330x242/image_05.jpg" alt="img">
+                        </a>
+                        <h2 class="with_number">
+                            <a href="post_gallery.html" title="@cat.Title</a>
+                            <a class="comments_number" href="post_gallery.html#comments_list" title="@cat.CommentCount yorum">
+                                @cat.CommentCount<span class="arrow_comments"></span></a>
+                        </h2>
+                        <ul class="post_details">
+                            <li class="category">
+                                <a href="category_world.html" title="@cat.Category">@cat.Category</a>
+                            </li>
+                            <li class="date">
+                                10:11 PM, Feb 02
+                            </li>
+                        </ul>
+                        <p>@cat.Summary</p>
+                        <a class="read_more" href="post_gallery.html" title="Daha Fazlası">
+                            <span class="arrow"></span><span>Daha Fazlası</span>
+                        </a>
+                    </li>
+                }
+            }
+
+        </ul>
+    }
+    <div class="column column_1_2">
+        <ul class="blog small clearfix">
+            @{
+                foreach (var gl in Model.LatestByCategory.Where(x => x.Category == "Moda" && x.NewsId != cat.NewsId).Take(4))
+                {
+                    <li class="post">
+                        <a href="@Url.Action("Post", "Posts", gl.NewsId)" title="@gl.Title">
+                            <img src="@gl.ImageUrl" alt="img">
+                        </a>
+                        <div class="post_content">
+                            <h5>
+                                <a href="@Url.Action("Post", "Posts", gl.NewsId)" title="@gl.Title">@gl.Title</a>
+                            </h5>
+                            <ul class="post_details simple">
+                                <li class="category">
+                                    <a href="category_health.html" title="@gl.Category">@gl.Category</a>
+                                </li>
+                                <li class="date">
+                                    10:11 PM, Feb 02
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+            }
+
+        </ul>
+        <a class="more page_margin_top" href="#">@cat.Category Daha Fazlası</a>
+    </div>
+</div>

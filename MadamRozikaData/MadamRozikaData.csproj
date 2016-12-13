@@ -48,13 +48,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Article.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Author.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CategoryRelation.cs">
+    <Compile Include="CategoryArticleRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryGalleryRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryNewsRelation.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Comment.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentArticleRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentAuthorRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentGalleryRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentNewsRelation.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\FooterGalleryMapper.cs" />
@@ -63,10 +87,14 @@
     <Compile Include="Functions\CategoryMenuMapper.cs" />
     <Compile Include="Functions\NewsListMapper.cs" />
     <Compile Include="Functions\NewsMenuMapper.cs" />
+    <Compile Include="Functions\SubContentMapper.cs" />
     <Compile Include="Gallery.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GalleryItem.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Headline.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MadamRozikaEntityDataModel.Context.cs">
@@ -88,17 +116,34 @@
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleUserRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\FooterService.cs" />
     <Compile Include="Services\HeaderBandService.cs" />
     <Compile Include="Services\HeaderMenuService.cs" />
+    <Compile Include="Services\PostsService.cs" />
+    <Compile Include="Services\HomeService.cs" />
     <Compile Include="Sp_GetNewsListWithCategoryUrl_Result.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TagRelation.cs">
+    <Compile Include="TagArticleRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TagGalleryRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TagNewsRelation.cs">
+      <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
       <DependentUpon>MadamRozikaEntityDataModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

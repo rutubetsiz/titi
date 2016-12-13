@@ -11,7 +11,12 @@ namespace MadamRozikaOOP.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (HomeService hs = new HomeService())
+            {
+                var hsobj = hs.GetMainContent();
+                 
+                return View(hsobj);
+            }
         }
 
         public PartialViewResult _MenuPartial()

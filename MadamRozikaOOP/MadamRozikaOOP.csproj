@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -113,12 +122,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -167,6 +170,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DenemeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -671,6 +675,18 @@
     <Content Include="Views\Home\_FooterPartial.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Deneme\Index.cshtml" />
+    <Content Include="Views\Shared\_Latest.cshtml" />
+    <Content Include="Views\Shared\_LatestFashion.cshtml" />
+    <Content Include="Views\Shared\_Recommended.cshtml" />
+    <Content Include="Views\Shared\_LatestVertical.cshtml" />
+    <Content Include="Views\Shared\_TopPostsTabbed.cshtml" />
+    <Content Include="Views\Shared\_Beauty.cshtml" />
+    <Content Include="Views\Shared\_Health.cshtml" />
+    <Content Include="Views\Shared\_TopAuthors.cshtml" />
+    <Content Include="Views\Shared\_Science.cshtml" />
+    <Content Include="Views\Shared\_LatestTabbed.cshtml" />
+    <Content Include="Views\Posts\Post.cshtml" />
+    <Content Include="Views\Shared\_MostCommented.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadamRozikaData\MadamRozikaData.csproj">

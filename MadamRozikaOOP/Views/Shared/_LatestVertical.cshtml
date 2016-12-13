@@ -1,0 +1,36 @@
+﻿@model MadamRozikaGlobal.Dtos.ViewDtos.ContentBase
+
+<h4 class="box_header page_margin_top_section">Latest Posts</h4>
+<div class="vertical_carousel_container clearfix">
+
+    <ul class="blog small vertical_carousel autoplay-1 scroll-1 navigation-1 easing-easeInOutQuint duration-750">
+
+        @{
+            foreach (var late in Model.Latests)
+            {
+                <li class="post">
+                    <a href="post_gallery.html" title="@late.Title">
+                        <span class="icon small gallery"></span>
+                        <img src='@late.ImageUrl' alt='img'>
+                    </a>
+                    <div class="post_content">
+                        <h5>
+                            <a href="post_gallery.html" title="@late.Title">@late.Title</a>
+                        </h5>
+                        <ul class="post_details simple">
+                            <li class="category">
+                                <a href="category_health.html" title="@late.Category">@late.Category</a>
+                            </li>
+                            <li class="date">
+                                10:11 PM, Feb 02
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            }
+        }
+
+
+    </ul>
+
+</div>

@@ -40,12 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos\ViewDtos\CategoryMenuDto.cs" />
+    <Compile Include="Dtos\ViewDtos\ContentBase.cs" />
     <Compile Include="Dtos\ViewDtos\FooterDto.cs" />
     <Compile Include="Dtos\ViewDtos\FooterGalleryDto.cs" />
     <Compile Include="Dtos\ViewDtos\FooterNewsDto.cs" />
     <Compile Include="Dtos\ViewDtos\HeaderMenuDto.cs" />
+    <Compile Include="Dtos\ViewDtos\PostContentDto.cs" />
+    <Compile Include="Dtos\ViewDtos\MainContentDto.cs" />
     <Compile Include="Dtos\ViewDtos\NewsListDto.cs" />
     <Compile Include="Dtos\ViewDtos\NewsMenuDto.cs" />
+    <Compile Include="Dtos\ViewDtos\SubContents\SubContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
